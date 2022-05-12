@@ -1,0 +1,38 @@
+{% extends 'init.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+        <div class="option">
+            <a href="" class="">Log In</a>
+            <a href="/register" class="signup">Sign Up</a>
+        </div>
+        <div class="main">
+            <h1>Sign in to your account</h1>
+            {# <h3 class="detail">In order to access to the dashboard</h3> #}
+            <input type="username" value="{{ last_username }}" placeholder="Username" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+            <input type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" autocomplete="current-password" required>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <h6 class="ForgotPassword">Forgot your password?</h6>
+            <h6>with an account you can manage the broker platform.</h6>
+            {# <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> Remember me
+                </label>
+            </div> #}
+            <button class="btn btn-lg btn-primary" name="submit" type="submit">Sign in</button>
+        </div>
+</form>
+{% endblock %}

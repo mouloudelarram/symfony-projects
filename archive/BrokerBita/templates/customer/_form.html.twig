@@ -1,0 +1,64 @@
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+ #}
+{{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row" style="display: grid; width: 100%; justify-content: center;">
+        <div class="col" style="display: grid; color: #02b3e4; padding: 10px;">
+            {{ form_label(form.firstname) }}
+            {{ form_widget(form.firstname) }}
+        </div>
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+            {{ form_label(form.lastname) }}
+            {{ form_widget(form.lastname) }}
+        </div>
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+        </div>
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.phone) }}
+            {{ form_widget(form.phone) }}
+        </div>
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.role) }}
+            {{ form_widget(form.role) }}
+        </div>
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.username) }}
+            {{ form_widget(form.username) }}
+        </div>
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.password) }}
+            {{ form_widget(form.password) }}
+        </div>
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.profile) }}
+            {{ form_widget(form.profile) }}
+        </div>
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.createdAt) }}
+            {{ form_widget(form.createdAt) }}
+        </div>
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+        {{ form_errors(form) }}
+        </div>
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+        <button class="btn btn-save">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
+{{ form_end(form) }}

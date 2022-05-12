@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        <link rel="stylesheet" href="/assets/system.css">
+    {% endblock %}
+    <title>{% block title %}Log In{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <img src="/assets/img/BROKERLOGOfull2.png" alt="BROKER" class="logo">
+    </header>
+    {% block body %}{% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <script src="/assets/login.js"></script>
+    {% endblock %}
+</body>
+</html>

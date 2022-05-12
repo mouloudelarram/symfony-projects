@@ -1,0 +1,32 @@
+{% extends 'init.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {{ form_start(registrationForm) }}
+        <div class="option">
+            <a href="/login"  class="login">Log In</a>
+            <a class="">Sign Up</a></div>
+        <div class="main">
+            <h1>Create your account</h1>
+            {#  
+            <h3 class="detail">the best platform to acquire new skills.</h3>
+            <input name="firstname" type="text" value="<?php if (isset($_GET['firstname'])) echo $_GET['firstname'];?>"  placeholder="First Name" required/>
+            <input name="lastname" type="text" value="<?php if (isset($_GET['lastname'])) echo $_GET['lastname'];?>"  placeholder="Last Name" required/>
+            <input name="email" type="email" value="<?php if (isset($_GET['email'])) echo $_GET['email'];?>"  placeholder="Email Adresse" required/>
+            <input name="password" type="password" placeholder="Password" required/>
+            <h6>with an account you can like, save and Check courses.</h6>
+            <button type="submit" name="submit">Sign Up</button> 
+            #}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.username) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }}
+            {{ form_row(registrationForm.agreeTerms) }}
+
+            <button type="submit" class="btn">Register</button>
+        </div>
+        
+    {{ form_end(registrationForm) }}
+{% endblock %}

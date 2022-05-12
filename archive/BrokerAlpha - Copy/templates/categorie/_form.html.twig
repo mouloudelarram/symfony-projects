@@ -1,0 +1,36 @@
+{# {{ form_start(form) }}
+    	<div style="display: flex;
+  width: 100%;
+  justify-content: space-between;">
+    {{ form_errors(form) }}
+    </div>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }} #}
+
+{{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row" style="display: grid; width: 100%; justify-content: center;">
+        <div class="col" style="display: grid; color: #02b3e4; padding: 10px;">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+        </div>
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+        </div>
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.image) }}
+            {{ form_widget(form.image) }}
+        </div>
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+        {{ form_errors(form) }}
+        </div>
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+        <button class="btn btn-save">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
+{{ form_end(form) }}

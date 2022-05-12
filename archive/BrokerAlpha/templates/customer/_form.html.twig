@@ -1,0 +1,277 @@
+{{ form_start(form) }}
+    <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+        {{ form_errors(form) }}
+    </div>
+
+    <fieldset class="mb-3">
+        <legend class="text-uppercase font-size-sm font-weight-bold" style="color: #2196f3;"><a href="{{ path('app_customer_index') }}/{{ role }}"><i class="icon-enter5"></i></a>
+            &nbsp; &nbsp; &nbsp;  {{ role }}s
+        </legend>
+
+        <div class="form-group row">
+            <label class="col-form-label col-lg-2">Full name</label>
+            <div class="col-lg-10">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_widget(form.firstname, { 'attr': {'type': 'text', 'class': 'form-control form-control-lg', 'placeholder': "first name"} }) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_widget(form.lastname, { 'attr': {'type': 'text', 'class': 'form-control form-control-lg', 'placeholder': "last name"} }) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-form-label-lg col-lg-2">Email</label>
+            <div class="col-lg-10">
+                {{ form_widget(form.email, { 'attr': {'type': 'text', 'class': 'form-control form-control-lg', 'placeholder': "Your Email Address"} }) }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-lg-2">Phone</label>
+            <div class="col-lg-10">
+                {{ form_widget(form.phone, { 'attr': {'type': 'number', 'class': 'form-control form-control-lg', 'placeholder': "Your Phone Number"} }) }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-form-label-sm col-lg-2">Password</label>
+            <div class="col-lg-10">
+                {{ form_widget(form.password, { 'attr': {'type': 'text', 'class': 'form-control form-control-lg', 'placeholder': "Your Password at least 4 characters"} }) }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-lg-2"> {{ form_label(form.role) }}</label>
+            <div class="col-lg-10">
+                {{ form_widget(form.role, {'attr': {'class' : 'selectField'} }) }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-lg-2"> {{ form_label(form.profile) }}</label>
+            <div class="col-lg-10">
+                {{ form_widget(form.profile, {'attr': {'class' : 'selectField'} }) }}
+            </div>
+        </div>
+
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }} <i class="icon-paperplane ml-2"></i></button>
+        </div>
+    </fieldset>
+
+{{ form_end(form) }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+ 
+
+{#     <div class="form-group row">
+        <label class="col-form-label col-lg-2">Custom BS file input</label>
+        <div class="col-lg-10">
+            <div class="custom-file">
+                    {# {{ form_widget(form.profile, { 'attr': {'type': 'file','id': 'customFile', 'class': 'custom-file-input'} }) }}
+ # }{{ form_label(form.profile) }}
+            {{ form_widget(form.profile) }}
+                {# <input type="file" class="custom-file-input" id="customFile"> # }
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+        </div>
+    </div> #}
+
+   {#  <div class="form-group row">
+        <label class="col-form-label col-lg-2">Styled file input</label>
+        <div class="col-lg-10">
+            <div class="uniform-uploader">
+            {{ form_widget(form.profile, { 'attr': {'data-fouc': '', 'type': 'file','id': 'customFile', 'class': 'form-control-uniform'} }) }}
+            {# <input type="file" class="" data-fouc=""> # }
+            <span class="filename" style="user-select: none;">{{ form_label(form.name) }}</span>
+            <span class="action btn btn-light" style="user-select: none;">Choose File</span>
+            </div>
+        </div>
+    </div> #}
+
+
+    {# <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.profile) }}
+            {{ form_widget(form.profile, {'attr': {'class' : 'selectField'} }) }}
+        </div> #}
+
+
+    {# <fieldset class="mb-3">
+        <legend class="text-uppercase font-size-sm font-weight-bold">Basic file inputs</legend>
+
+        <div class="form-group row">
+            <label class="col-form-label col-lg-2">Default file input</label>
+            <div class="col-lg-10">
+                <input type="file" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-lg-2">Styled file input</label>
+            <div class="col-lg-10">
+                <input type="file" class="form-control-uniform" data-fouc>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-lg-2">Custom BS file input</label>
+            <div class="col-lg-10">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">{{ form_label(form.profile) }}</label>
+                </div>
+            </div>
+        </div>    
+    </fieldset> #}
+
+
+    {# <fieldset class="mb-3">
+        <legend class="text-uppercase font-size-sm font-weight-bold">Basic inputs</legend>
+
+        <div class="form-group row">
+            <label class="col-form-label col-lg-2">{{ form_label(form.firstname) }}</label>
+            <div class="col-lg-5">
+                { # <input type="text" class="form-control"> # }
+               { #  {{ form_widget(form.firstname) }} # }
+              { #   {{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} }) }} # }
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-lg-2">{{ form_label(form.lastname) }}</label>
+            <div class="col-lg-5">
+                { # <input type="text" class="form-control"> # }
+               { #  {{ form_widget(form.firstname) }} # }
+               { #  {{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} }) }} # }
+            </div>
+        </div>
+
+    </fieldset> 
+
+
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }} <i class="icon-paperplane ml-2"></i></button>
+    </div>
+
+
+    {# <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div> 
+
+    <div class="row" style="display: grid; width: 100%; justify-content: center;">
+        {# <div class="col" style="display: grid; color: #02b3e4; padding: 10px;">
+            {{ form_label(form.firstname) }}
+            {{ form_widget(form.firstname) }}
+        </div> #}
+
+       {#  <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+            {{ form_label(form.lastname) }}
+            {{ form_widget(form.lastname) }}
+        </div> #}
+        {# <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+        </div> #}
+
+        {# <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.phone) }}
+            {{ form_widget(form.phone) }}
+        </div> #}
+
+     {#    <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.role) }}
+            {{ form_widget(form.role) }}
+        </div> #}
+
+        {# <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.username) }}
+            {{ form_widget(form.username) }}
+        </div> #}
+
+       {#  <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.password) }}
+            {{ form_widget(form.password) }}
+        </div> #}
+
+       {#  <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.profile) }}
+            {{ form_widget(form.profile) }}
+        </div> #}
+
+        {# <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+           {{ form_label(form.createdAt) }}
+            {{ form_widget(form.createdAt) }}
+        </div> 
+
+        <div class="col" style="display: grid; width: 50vw; color: #02b3e4; padding: 10px;">
+        <button class="btn btn-save">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
+{{ form_end(form) }}#}

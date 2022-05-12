@@ -1,0 +1,146 @@
+{% extends 'init.html.twig' %}
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-expand-md navbar-dark">
+		<div class="navbar-brand">
+			<a href="#" class="d-inline-block">
+                <img src="/assets/img/BROKERLOGOfull2.png" alt="broker" style="width: 95px;height: 33px;">
+            </a>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page content -->
+	<div class="page-content">
+
+		<!-- Main content -->
+		<div class="content-wrapper">
+
+			<!-- Content area -->
+			<div class="content d-flex justify-content-center align-items-center">
+
+				<!-- Login form -->
+				<form method="post">
+                     {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+					<div class="card mb-0">
+						<div class="card-body">
+							<div class="text-center mb-3">
+								<i class="icon-reading icon-2x text-slate-300 border-slate-300 border-3 rounded-round p-3 mb-3 mt-1"></i> 
+								 {# <img src="/assets/blog/images/BROKERLOGO.png" style="width: 50px;  height: 50px; padding; 10px; margin:5px; border: 1px solid cyan; border-radius: 100%;" alt="broker" style="width: 95px;height: 33px;">
+                 #}
+                                <h5 class="mb-0">Login to your account</h5>
+								<span class="d-block text-muted">Enter your credentials below</span>
+							</div>
+
+							<div class="form-group form-group-feedback form-group-feedback-left">
+                               <input type="username" value="{{ last_username }}" placeholder="Username" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+								{# <input type="text" class="form-control" placeholder="Username"> #}
+								<div class="form-control-feedback">
+									<i class="icon-user text-muted"></i>
+								</div>
+							</div>
+
+							<div class="form-group form-group-feedback form-group-feedback-left">
+                                <input type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" autocomplete="current-password" required>
+								{# <input type="password" class="form-control" placeholder="Password"> #}
+								<div class="form-control-feedback">
+									<i class="icon-lock2 text-muted"></i>
+								</div>
+							</div>
+
+                            <div class="form-group form-group-feedback form-group-feedback-left">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+								<div class="form-control-feedback">
+									<i class="icon-lock2 text-muted"></i>
+								</div>
+							</div>
+
+							<div class="form-group">
+{# 								<button type="submit" class="btn btn-primary btn-block">Sign in <i class="icon-circle-right2 ml-2"></i></button> #}
+                                <button class="btn btn-primary btn-block" name="submit" type="submit">Sign in <i class="icon-circle-right2 ml-2"></i></button>
+							</div>
+
+							<div class="text-center">
+								<a href="#">Forgot password?</a>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- /login form -->
+
+			</div>
+			<!-- /content area -->
+
+
+			<!-- Footer -->
+			<div class="navbar navbar-expand-lg navbar-light">
+				<div class="text-center d-lg-none w-100">
+					<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+						<i class="icon-unfold mr-2"></i>
+						Footer
+					</button>
+				</div>
+
+				<div class="navbar-collapse collapse" id="navbar-footer">
+					<span class="navbar-text">
+						&copy; 2021 - 2022. BROKER, AT BIG4COM - CITY D'INNOVATION, MARRAKESH  by EL ARRAM MOULOUD
+					</span>
+				</div>
+			</div>
+			<!-- /footer -->
+
+		</div>
+		<!-- /main content -->
+
+	</div>
+	<!-- /page content -->
+{# 
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+        <div class="option">
+            <a href="" class="">Log In</a>
+            <a href="/register" class="signup">Sign Up</a>
+        </div>
+        <div class="main">
+            <h1>Sign in to your account</h1>
+            { # <h3 class="detail">In order to access to the dashboard</h3> # }
+            <input type="username" value="{{ last_username }}" placeholder="Username" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+            <input type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" autocomplete="current-password" required>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <h6 class="ForgotPassword">Forgot your password?</h6>
+            <h6>with an account you can manage the broker platform.</h6>
+            {# <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> Remember me
+                </label>
+            </div> # }
+            <button class="btn btn-lg btn-primary" name="submit" type="submit">Sign in</button>
+        </div>
+</form> #}
+{% endblock %}
+
+
+
+
